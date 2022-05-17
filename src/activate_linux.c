@@ -49,7 +49,7 @@ static void activate(GtkApplication *app, void *data)
 	int len = 100+title_len+subtitle_len;
 	char text[len];
 
-	snprintf(text, len, "<span alpha=\"50%\" font_desc=\"24.0\">%s</span>\n<span alpha=\"50%\" font_desc=\"16\">%s</span>", conf->title, conf->subtitle);
+	snprintf(text, len, "<span alpha=\"50%\" font_desc=\"24.0\">%s</span>\n<span alpha=\"50%\" font_desc=\"15\">%s</span>", conf->title, conf->subtitle);
 
 	GdkDisplay *display = gdk_display_get_default();
 	for (int i = 0; i < gdk_display_get_n_monitors(display); i++) {
@@ -61,8 +61,8 @@ static void activate(GtkApplication *app, void *data)
 int main(int argc, char **argv)
 {
 	struct config conf;
-	conf.title = "Activate Linux";
-	conf.subtitle = "Go to Settings to activate Linux.";
+	conf.title = "Activate GNU/Linux";
+	conf.subtitle = "Go to Settings to activate GNU/Linux";
 	GtkApplication *app = gtk_application_new(NULL, G_APPLICATION_FLAGS_NONE);
 	g_signal_connect(app, "activate", G_CALLBACK(activate), (void *) &conf);
 	int status = g_application_run(G_APPLICATION(app), 0, NULL);
